@@ -12,7 +12,9 @@ def main():
             dt.now().strftime('%d.%m.%Y'),
             rates['USD'],
             rates['EUR'],
-            rates['UAH']
+            rates['UAH'],
+            rates['CNY'],
+            rates['GBP']
         )
         telegram.sendMessage(msg, config.Telegram.admins)
 

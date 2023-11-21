@@ -10,7 +10,9 @@ class CbRf:
         currency = {
             'USD': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[15]/td[5]',
             'EUR': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[16]/td[5]',
-            'UAH': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[38]/td[5]'
+            'UAH': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[38]/td[5]',
+            'CNY': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[24]/td[5]',
+            'GBP': '//*[@id="content"]/div/div/div/div[3]/div/table/tbody/tr[39]/td[5]'
         }
         page = get_page(url)
         if page is not None:
