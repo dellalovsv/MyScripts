@@ -6,15 +6,15 @@ from datetime import datetime as dt
 
 
 def main():
-    rates = ex_rates.CbRf().get_rates()
-    if rates is not None:
+    cb_rates = ex_rates.CbRf().get_rates()
+    if cb_rates is not None:
         msg = msg_re.rate_now % (
             dt.now().strftime('%d.%m.%Y'),
-            rates['USD'],
-            rates['EUR'],
-            rates['UAH'],
-            rates['CNY'],
-            rates['GBP']
+            cb_rates['USD'],
+            cb_rates['EUR'],
+            cb_rates['UAH'],
+            cb_rates['CNY'],
+            cb_rates['GBP']
         )
         telegram.sendMessage(msg, config.Telegram.admins)
 
