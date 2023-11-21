@@ -22,7 +22,35 @@ class CbRf:
             for item in currency:
                 dom = etree.HTML(str(soup))
                 res[item] = dom.xpath(currency[item])[0].text
-                # res.append(dom.xpath(currency[item])[0].text)
             return res
         else:
             return None
+
+
+class BankiRU:
+    def get_rates(self):
+        urls = {
+            'USD': 'https://www.banki.ru/products/currency/cash/usd/moskva/',
+            'EUR': 'https://www.banki.ru/products/currency/cash/eur/moskva/',
+            'UAH': 'https://www.banki.ru/products/currency/cash/uah/moskva/',
+            'CNY': 'https://www.banki.ru/products/currency/cash/cny/moskva/',
+            'GBP': 'https://www.banki.ru/products/currency/cash/gbp/moskva/'
+        }
+        xpath = {
+            'purchase': '/html/body/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/section/div/'
+                        'div/div/div[3]/div/div/div[2]/div[1]/div/div[2]',
+            'sale': '/html/body/div/div[2]/div[1]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/section/div/div/'
+                    'div/div[3]/div/div/div[2]/div[2]/div/div/div[2]'
+        }
+        res = {}
+        for url in urls:
+            page = get_page(urls[url])
+            if page.status_code == 200:
+                soup = BeautifulSoup(page.content, 'lxml')
+                dom = etree.HTML(str(soup))
+                purchase = dom.xpath(xpath['purchase'])[0].text
+                sale = dom.xpath(xpath['sale'])[0].text
+                res[url] = [purchase, sale]
+            else:
+                return None
+        return res
