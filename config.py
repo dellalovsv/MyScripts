@@ -6,3 +6,11 @@ class Telegram(object):
     urls = {
         'sendMessage': f'https://api.telegram.org/bot{token}/sendMessage'
     }
+
+
+class Database(object):
+    host = 'mysql'
+    port = 3306
+    user = 'dev'
+    password = '12345678'
+    db = 'da_system'
