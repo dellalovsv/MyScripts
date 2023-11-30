@@ -1,0 +1,20 @@
+create table if not exists `rates_ex` (
+    `id` int not null auto_increment,
+    date date not null default current_date,
+    cb_rf_usd_sale double(10, 5) not null default "0",
+    cb_rf_eur_sale double(10, 5) not null default "0",
+    cb_rf_uah_sale double(10, 5) not null default "0",
+    cb_rf_cny_sale double(10, 5) not null default "0",
+    cb_rf_gbp_sale double(10, 5) not null default "0",
+    banki_ru_moscow_usd_purchase double(10, 5) not null default "0",
+    banki_ru_moscow_usd_sale double(10, 5) not null default "0",
+    banki_ru_moscow_eur_purchase double(10, 5) not null default "0",
+    banki_ru_moscow_eur_sale double(10, 5) not null default "0",
+    banki_ru_moscow_uah_purchase double(10, 5) not null default "0",
+    banki_ru_moscow_uah_sale double(10, 5) not null default "0",
+    banki_ru_moscow_cny_purchase double(10, 5) not null default "0",
+    banki_ru_moscow_cny_sale double(10, 5) not null default "0",
+    banki_ru_moscow_gbp_purchase double(10, 5) not null default "0",
+    banki_ru_moscow_gbp_sale double(10, 5) not null default "0",
+    primary key (id)
+)
